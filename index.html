@@ -7,15 +7,26 @@
     <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
   </head>
   <body>
-    <a-scene>
+    <a-scene id="scene">
       <a-assets>
         <img id="grass" src="trawa-w-rolkach.jpg">
         <img id="brick" src="home-brick.jpg">
+
+         <a-box
+            height="10"
+           width="0.01"
+           depth="8"
+           color="red"
+           roughness="1"
+           metalness="0"
+           id="Wall"
+          class="walls">
+        </a-box>
       </a-assets>
       <a-box
         height="1"
         width="2"
-        color="orange"
+        color="red"
         depth="1"
         position= "4 1 -3"
         rotation="45 0 45"
@@ -48,14 +59,16 @@
         width="40"
         depth="40"
         position="0 -0.5 0"
-        scale="0.5 2.4 0.5"
         src="#grass"
         roughness="1"
         metalness="0"
         >
+
       </a-box>
 
-      <a-camera>
+
+
+      <a-camera position="0 10 0">
         <a-cursor color="#FF0000" />
       </a-camera>
 
@@ -76,15 +89,62 @@
     </a-scene>
 
     <script>
-      var box = document.querySelector("#BrickBox"); // sprawdzic jak dziala f query selector u michasia <3
+      var box = document.querySelector("#BrickBox");
+      var wall = document.querySelector("#Wall");
+      var scene = document.getElementById('scene');
       box.addEventListener('mouseenter', function(){
           box.setAttribute('scale',{
             x:2,
             y:1,
             z:1
-            }
+          }
+
           )
+          //perfectMaze(40);
+          // <a-box
+          //   height="10"
+          //   width="0.01"
+          //   depth="8"
+          //   color="red"
+          //   roughness="1"
+          //   metalness="0"
+          //   id="Wall"
+          //   class="walls">
     });
+    function CreateWall(position, rotation) {
+      var element = document.createElement('a-box');
+      element.setAttribute('height', '10');
+      element.setAttribute('width', '0.01');
+      element.setAttribute('depth', '8');
+      element.setAttribute('color', 'green');
+      element.setAttribute('roughness', '1');
+      element.setAttribute('metalness', '0');
+      element.setAttribute("position", position[0] + ' ' + position[1] + ' ' + position[2]);
+      element.setAttribute('rotation', rotation);
+      scene.appendChild(element);
+    }
+
+    function perfectMaze(n, lenght) {
+
+     var state1 = [-n*lenght/2, -0.25 ,-(n*lenght/2) + (lenght/2)];
+     var state2 = [(-n*lenght/2) + (lenght/2), -0.25 ,-(n*lenght/2)];
+     var rotation = "0 0 0";
+    // for( var z = 0; z <= n; z++ ) {
+       for( var j = 0; j <= n; j++ ) {
+         for(var i = 0; i < n; i++ ) {
+           CreateWall(state1, rotation);
+          CreateWall(state2,"0 90 0");
+           state1[2] = state1[2] + lenght;
+           state2[0] = state2[0] + lenght;
+         }
+         state1[0] = state1[0] + lenght;
+         state1[2] = -(n*lenght/2) + (lenght/2);
+         state2[2] = state2[2] + lenght;
+         state2[0] = (-n*lenght/2) + (lenght/2);
+      }
+
+    }
+    perfectMaze(5, 8);
     </script>
   </body>
 </html>
