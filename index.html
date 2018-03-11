@@ -12,27 +12,10 @@
         <img id="grass" src="trawa-w-rolkach.jpg">
         <img id="brick" src="home-brick.jpg">
 
-         <a-box
-            height="10"
-           width="0.01"
-           depth="8"
-           color="red"
-           roughness="1"
-           metalness="0"
-           id="Wall"
-          class="walls">
+
         </a-box>
       </a-assets>
-      <a-box
-        height="1"
-        width="2"
-        color="red"
-        depth="1"
-        position= "4 1 -3"
-        rotation="45 0 45"
-        id="TestBox">
 
-      </a-box>
 
       <a-box
         height="2"
@@ -94,24 +77,13 @@
       var scene = document.getElementById('scene');
       box.addEventListener('mouseenter', function(){
           box.setAttribute('scale',{
-            x:2,
-            y:1,
-            z:1
-          }
-
+              x:2,
+              y:1,
+              z:1
+            }
           )
-          //perfectMaze(40);
-          // <a-box
-          //   height="10"
-          //   width="0.01"
-          //   depth="8"
-          //   color="red"
-          //   roughness="1"
-          //   metalness="0"
-          //   id="Wall"
-          //   class="walls">
     });
-    function CreateWall(position, rotation) {
+    function CreateWall(position, rotation, id) {
       var element = document.createElement('a-box');
       element.setAttribute('height', '10');
       element.setAttribute('width', '0.01');
@@ -121,7 +93,9 @@
       element.setAttribute('metalness', '0');
       element.setAttribute("position", position[0] + ' ' + position[1] + ' ' + position[2]);
       element.setAttribute('rotation', rotation);
+     element.setAttribute('id', id );
       scene.appendChild(element);
+      console.log(element.id)
     }
 
     function perfectMaze(n, lenght) {
@@ -129,11 +103,12 @@
      var state1 = [-n*lenght/2, -0.25 ,-(n*lenght/2) + (lenght/2)];
      var state2 = [(-n*lenght/2) + (lenght/2), -0.25 ,-(n*lenght/2)];
      var rotation = "0 0 0";
-    // for( var z = 0; z <= n; z++ ) {
        for( var j = 0; j <= n; j++ ) {
          for(var i = 0; i < n; i++ ) {
-           CreateWall(state1, rotation);
-          CreateWall(state2,"0 90 0");
+           let z = (j-1) + " " + i + " y " + j + " " + i;
+             CreateWall(state1, rotation, (j-1) + " " + i + " y " + j + " " + i);
+             CreateWall(state2,"0 90 0", i + " " + (j-1) + " x " + i + " " + j );
+
            state1[2] = state1[2] + lenght;
            state2[0] = state2[0] + lenght;
          }
@@ -142,9 +117,8 @@
          state2[2] = state2[2] + lenght;
          state2[0] = (-n*lenght/2) + (lenght/2);
       }
-
     }
-    perfectMaze(5, 8);
+    perfectMaze(3, 8);
     </script>
   </body>
 </html>
