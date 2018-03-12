@@ -86,9 +86,13 @@
             }
           )
     });
+    function isZero(currentValue) {
+      return currentValue == 0;
+    }
 
   function ChangeState(direction, x, y) {
     newState = createState();
+    console.log(direction);
     newState.x = x + direction.x;
     newState.y = y + direction.y;
     return newState;
@@ -111,6 +115,7 @@
         y : Math.floor(Math.random()*n)
 
       }
+
       RemoveWall();
 
       function RemoveWall( ){
@@ -146,18 +151,21 @@
           y: 0
         });
       }
-      console.log(amount);
+
       if(amount == 0 ) {
-        //arrj = matrix.join('');
-        if((/[^0]/).exec(matrix) || matrix.length != matrix.length){
+
+        if(matrix.every(function(submatrix) {
+          return submatrix.every(isZero);
+        })){
+          console.log('wlazlem tuuu');
+          return;
+        }
+        else {
           var z = stack.pop()
           state.x = z.x;
           state.y = z.y;
           RemoveWall();
-        }
-        else {
-          console.log('dupa');
-        return;
+          return;
         }
       }
       stack.push({
@@ -165,7 +173,7 @@
         y : state.y
       });
 
-
+      console.log(moves);
       newState = ChangeState(moves[Math.floor(Math.random()*amount)], state.x, state.y);
       console.log(Math.floor(Math.random()*amount))
       //console.log(state.x + ' ' + state.y + ' ' + newState.x + ' ' + newState.y);
@@ -213,6 +221,7 @@
             CreateWall(state2,"0 90 0", i + " " + (j-1) + " " + i + " " + j );
             if(j!==n) {
               matrix[j][i] = 1;
+              //console.log(matrix);
             }
 
            state1[2] = state1[2] + lenght;
@@ -223,7 +232,9 @@
          state2[2] = state2[2] + lenght;
          state2[0] = (-n*lenght/2) + (lenght/2);
       }
+      // console.log(JSON.stringify(matrix));
       matrix.pop();
+
       CreateMaze(matrix, n);
     }
 
