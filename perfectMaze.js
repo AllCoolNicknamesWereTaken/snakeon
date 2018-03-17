@@ -163,5 +163,3 @@ matrix.pop();
 
 CreateMaze(matrix, n);
 }
-
-perfectMaze(3, 8);

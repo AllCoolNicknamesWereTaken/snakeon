@@ -9,33 +9,15 @@
   <body>
     <a-scene id="scene">
       <a-assets>
-        <img id="grass" src="trawa-w-rolkach.jpg">
-        <img id="brick" src="home-brick.jpg">
+        <img id="grass" src="images/trawa-w-rolkach.jpg">
+        <img id="brick" src="images/home-brick.jpg">
 
 
         </a-box>
       </a-assets>
 
 
-      <a-box
-        height="2"
-        width="2"
-        src="#brick"
-        depth=3
-        position="-4 0 -4"
-        scale="0.5 2.4 0.5"
-        id="BrickBox"
-        metalness="0"
-        roughness="1">
 
-        <a-animation
-          attribute="rotation"
-          dur="1000" fill="forwards"
-          to="0 360 0"
-          begin="click"
-          repeat="indefinite">
-        </a-animation>
-      </a-box>
 
       <a-box
         height="0.5"
@@ -68,15 +50,10 @@
         position="-6 6 20"
         look-at="#TestBox" > </a-light>
 
-      <a-sky src="sky_povray.jpg" color="#FF9Fc5"> </a-sky>
+      <a-sky src="images/sky_povray.jpg" color="#FF9Fc5"> </a-sky>
     </a-scene>
 
-    <script src="maze.js">
-
-
-    perfectMaze(3, 8);
-
-
-    </script>
+    <script src="perfectMaze.js" src= "main.js"></script>
+    <script src= "main.js"></script>
   </body>
 </html>
