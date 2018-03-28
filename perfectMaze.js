@@ -1,6 +1,6 @@
 var box = document.querySelector("#BrickBox");
 var wall = document.querySelector("#Wall");
-var scene = document.getElementById('scene');
+var scene = document.getElementById('floor');
 var matrix = [];
 var element = 0;
 
@@ -18,7 +18,7 @@ return currentValue == 0;
 
 function ChangeState(direction, x, y) {
 newState = createState();
-console.log(direction);
+// console.log(direction);
 newState.x = x + direction.x;
 newState.y = y + direction.y;
 return newState;
@@ -83,7 +83,7 @@ if(amount == 0 ) {
   if(matrix.every(function(submatrix) {
     return submatrix.every(isZero);
   })){
-    console.log('wlazlem tuuu');
+    // console.log('wlazlem tuuu');
     return;
   }
   else {
@@ -99,9 +99,9 @@ stack.push({
   y : state.y
 });
 
-console.log(moves);
+// console.log(moves);
 newState = ChangeState(moves[Math.floor(Math.random()*amount)], state.x, state.y);
-console.log(Math.floor(Math.random()*amount))
+// console.log(Math.floor(Math.random()*amount))
 //console.log(state.x + ' ' + state.y + ' ' + newState.x + ' ' + newState.y);
 //console.log(newState.x + ' ' + newState.y + ' ' + state.x + ' ' + state.y);
 
@@ -147,7 +147,7 @@ var rotation = "0 0 0";
       CreateWall(state2,"0 90 0", i + " " + (j-1) + " " + i + " " + j );
       if(j!==n) {
         matrix[j][i] = 1;
-        //console.log(matrix);
+
       }
 
      state1[2] = state1[2] + lenght;
@@ -158,7 +158,7 @@ var rotation = "0 0 0";
    state2[2] = state2[2] + lenght;
    state2[0] = (-n*lenght/2) + (lenght/2);
 }
-// console.log(JSON.stringify(matrix));
+
 matrix.pop();
 
 CreateMaze(matrix, n);

@@ -10,32 +10,27 @@
     <a-scene id="scene">
       <a-assets>
         <img id="grass" src="images/trawa-w-rolkach.jpg">
-        <img id="brick" src="images/home-brick.jpg">
-
-
-        </a-box>
       </a-assets>
-
-
-
-
-      <a-box
-        height="0.5"
-        width="40"
-        depth="40"
-        position="0 -0.5 0"
-        src="#grass"
-        roughness="1"
-        metalness="0"
-        >
-
+      <a-entity id="rotation_contener" contener_rotation="0 0 0">
+        <a-box
+          height="0.5"
+          width="40"
+          depth="40"
+          position="0 -0.5 0"
+          src="#grass"
+          roughness="1"
+          metalness="0"
+          id="floor"
+          moving="0 0 0">
       </a-box>
-
-
-
-      <a-camera position="0 40 0">
+      </a-entity>
+      <a-camera
+        id="camera"
+        position="0 0.5 0"
+        camera_component= "0 0 0">
         <a-cursor color="#FF0000" />
       </a-camera>
+
 
       <a-light
         type="spot"
@@ -53,7 +48,10 @@
       <a-sky src="images/sky_povray.jpg" color="#FF9Fc5"> </a-sky>
     </a-scene>
 
-    <script src="perfectMaze.js" src= "main.js"></script>
+    <script src="perfectMaze.js" ></script>
+    <script src="move.js"></script>
     <script src= "main.js"></script>
+    <script src= "rotation.js"></script>
+    <script src= "camera_component.js"></script>
   </body>
 </html>
