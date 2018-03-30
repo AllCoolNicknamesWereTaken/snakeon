@@ -18,5 +18,8 @@
     "aframe-scene",
     "webvr",
     "vr"
-  ]
+  ],
+  "dependencies": {
+    "aframe-animation-component": "^4.1.1"
+  }
 }

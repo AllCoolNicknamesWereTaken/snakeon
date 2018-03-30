@@ -1,13 +1,44 @@
+var rotation_delta = 0;
 AFRAME.registerComponent('camera_component', {
   schema: {type: 'vec3'},
   tick: function (time, timeDelta) {
-    if(this.el.object3D.rotation.y >  0.80 && this.el.object3D.rotation.y <  2.0 ) {
-      //floor.rotation.y =+ 90;
-      rotation_contener.setAttribute('contener_rotation', "0 -90 0");
+    if (is_rotating) {
+      return;
     }
-    if(this.el.object3D.rotation.y <  -0.80 && this.el.object3D.rotation.y >  -2.0 ) {
+  console.log(this.el.object3D.position);
+  // console.log(((this.el.object3D.rotation.y) % (Math.PI*90/180)));
+    if(((this.el.object3D.rotation.y) % dziel) >  0.90 && ((this.el.object3D.rotation.y) % dziel) <  2.0 ) {
       //floor.rotation.y =+ 90;
-      rotation_contener.setAttribute('contener_rotation', "0 90 0");
+      console.log("jestem w 1 war")
+      rotation_delta = -90;
+      direction = direction + rotation_delta;
+      i++
+      rotation_contener.setAttribute('contener_rotation', i);
+      if(moveDirection.xz === 'z'){
+        moveDirection.xz = 'x';
+      }
+      else {
+        moveDirection.xz = 'z';
+        moveDirection.speed = moveDirection.speed * (-1);
+
+
+      }
+    }
+    if((this.el.object3D.rotation.y % dziel) <  -0.90 && ((this.el.object3D.rotation.y) % dziel) >  -2.0 ) {
+
+      console.log("jestem w 2 war")
+      rotation_delta = +90;
+      direction = direction + rotation_delta;
+      i++
+      rotation_contener.setAttribute('contener_rotation', i);
+      if(moveDirection.xz === 'z'){
+        moveDirection.xz = 'x';
+        moveDirection.speed = moveDirection.speed * (-1);
+      }
+      else {
+        moveDirection.xz = 'z';
+      }
+
     }
   },
   //update: function () {
