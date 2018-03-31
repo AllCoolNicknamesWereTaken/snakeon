@@ -11,3 +11,4 @@ var moveDirection = {
 }
 perfectMaze(mazeSize,wallLenght);
 move();
+collision();

@@ -130,7 +130,9 @@ element.setAttribute('metalness', '0');
 element.setAttribute("position", position[0] + ' ' + position[1] + ' ' + position[2]);
 element.setAttribute('rotation', rotation);
 element.setAttribute('id', id );
+element.classList.add('wall');
 scene.appendChild(element);
+
 
 }
 

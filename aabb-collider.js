@@ -82,6 +82,7 @@ AFRAME.registerComponent('aabb-collider', {
         // The collision test checks for the conditions where cubes intersect.
         // It's an extension to 3 dimensions of this approach (with the condition negated)
         // https://www.youtube.com/watch?v=ghqD3e37R7E
+        console.log(sell.elMin, elMin);
         intersected = (self.elMin.x <= elMax.x && self.elMax.x >= elMin.x) &&
                       (self.elMin.y <= elMax.y && self.elMax.y >= elMin.y) &&
                       (self.elMin.z <= elMax.z && self.elMax.z >= elMin.z);
@@ -90,6 +91,7 @@ AFRAME.registerComponent('aabb-collider', {
       }
 
       function handleHit (hitEl) {
+        console.log('handle');
         hitEl.emit('hit');
         hitEl.addState(self.data.state);
         self.el.emit('hit', {el: hitEl});
