@@ -27,16 +27,26 @@
               id="floor"
               moving="0 0 0">
 
-            </a-box>
-            <!-- <a-animation attribute="rotation" repeat="0" to = "0 90 0"> </a-animation> -->
 
+            <!-- <a-animation attribute="rotation" repeat="0" to = "0 90 0"> </a-animation> -->
+            <a-box
+            id="princess"
+            height="7"
+            width="5"
+            depth="5"
+            color="red"
+            food='0 0 0'
+            position = '0 0 0'
+            >
+            </a-box>
+            </a-box>
             </a-entity>
       </a-entity>
     </a-entity>
 
       <a-camera
         id="camera"
-        position="0 0.5 0"
+        position="0 30 0"
         camera_component= "0 0 0">
         <a-cursor color="#FF0000" />
       </a-camera>
@@ -61,7 +71,9 @@
     <script src="perfectMaze.js" ></script>
     <script src="move.js"></script>
     <script src= "main.js"></script>
-    <script src= "rotation.js"></script>
     <script src= "camera_component.js"></script>
+    <script src= "rotation.js"></script>
+    <script src= "food.js"></script>
+    <script src= "aabb-collider.js"></script>
   </body>
 </html>

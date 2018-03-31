@@ -5,11 +5,11 @@ AFRAME.registerComponent('camera_component', {
     if (is_rotating) {
       return;
     }
-  console.log(this.el.object3D.position);
+
   // console.log(((this.el.object3D.rotation.y) % (Math.PI*90/180)));
     if(((this.el.object3D.rotation.y) % dziel) >  0.90 && ((this.el.object3D.rotation.y) % dziel) <  2.0 ) {
       //floor.rotation.y =+ 90;
-      console.log("jestem w 1 war")
+
       rotation_delta = -90;
       direction = direction + rotation_delta;
       i++
@@ -26,7 +26,7 @@ AFRAME.registerComponent('camera_component', {
     }
     if((this.el.object3D.rotation.y % dziel) <  -0.90 && ((this.el.object3D.rotation.y) % dziel) >  -2.0 ) {
 
-      console.log("jestem w 2 war")
+
       rotation_delta = +90;
       direction = direction + rotation_delta;
       i++

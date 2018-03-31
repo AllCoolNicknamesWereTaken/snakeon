@@ -16,7 +16,7 @@ AFRAME.registerComponent('moving', {
   schema: {type: 'vec3'},
   tick: function (time, timeDelta) {
     var pos = this.el.getAttribute('position');
-    console.log("pos " + this.el.object3D.position.z );
+    
   //  this.el.setAttribute('position', `0 0 ${pos.z + 0.01}`);
     //let xy = moveDirection.xy;
 
