@@ -36,6 +36,7 @@ AFRAME.registerComponent('aabb-collider', {
       // If objects not defined, intersect with everything.
       objectEls = this.el.sceneEl.children;
     }
+
     // Convert from NodeList to Array
     this.els = Array.prototype.slice.call(objectEls);
   },
@@ -82,7 +83,6 @@ AFRAME.registerComponent('aabb-collider', {
         // The collision test checks for the conditions where cubes intersect.
         // It's an extension to 3 dimensions of this approach (with the condition negated)
         // https://www.youtube.com/watch?v=ghqD3e37R7E
-        console.log(sell.elMin, elMin);
         intersected = (self.elMin.x <= elMax.x && self.elMax.x >= elMin.x) &&
                       (self.elMin.y <= elMax.y && self.elMax.y >= elMin.y) &&
                       (self.elMin.z <= elMax.z && self.elMax.z >= elMin.z);

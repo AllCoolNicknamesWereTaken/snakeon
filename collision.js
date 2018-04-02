@@ -1,5 +1,6 @@
 function collision() {
-  camera.setAttribute('aabb-collider', 'objects: .dummy-class');
-  camera.setAttribute('aabb-collider', 'objects: .wall');
-  camera.addEventListener('hit', function(el) {console.log("dupa")});
+  cameraBox.setAttribute('aabb-collider', 'objects: .dummy-class');
+  cameraBox.setAttribute('aabb-collider', 'objects: .wall, .princess');
+  //cameraBox.setAttribute('aabb-collider', 'objects: .princess');
+  cameraBox.addEventListener('hit', winerOrLoser);
 }
