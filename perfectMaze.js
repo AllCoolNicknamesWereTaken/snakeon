@@ -139,13 +139,19 @@ scene.appendChild(element);
 }
 
 function perfectMaze(n, lenght) {
-
+  //var box = document.querySelector("#BrickBox");
+  var wall = document.querySelector("#Wall");
+  scene = document.getElementById('floor');
+  var matrix = [];
+  var element = 0;
+console.log("wlazlem pacze co dalej");
 var state1 = [-n*lenght/2, 0.35 ,-(n*lenght/2) + (lenght/2)];
 var state2 = [(-n*lenght/2) + (lenght/2), 0.35 ,-(n*lenght/2)];
 var rotation = "0 90 0";
 //floorSize =
 console.log('widthfloor: ' + floor.getAttribute('width'))
 floorSize = n*lenght;
+console.log(floor);
 floor.setAttribute('width', floorSize);
 floor.setAttribute('depth', floorSize);
 console.log('widthfloor: ' + floor.getAttribute('width'))

@@ -6,7 +6,6 @@ AFRAME.registerComponent('camera_component', {
       return;
     }
 
-  // console.log(((this.el.object3D.rotation.y) % (Math.PI*90/180)));
     if(((this.el.object3D.rotation.y) % dziel) >  0.90 && ((this.el.object3D.rotation.y) % dziel) <  2.0 ) {
       //floor.rotation.y =+ 90;
 
