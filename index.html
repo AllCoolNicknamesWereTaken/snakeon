@@ -4,15 +4,16 @@
     <meta charset="utf-8">
     <title>intro</title>
     <meta name="description" content="intro">
-    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
-      <script src="https://unpkg.com/aframe-animation-component@4.0.0/dist/aframe-animation-component.min.js"></script>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@4.0.0/dist/aframe-animation-component.min.js"></script>
   </head>
   <body>
-    <a-scene id="scene">
+    <a-scene id="scene" >
       <a-assets>
         <img id="grass" src="images/trawa-w-rolkach.jpg">
+        <a-asset-item id="wall_obj" src="wall.gltf"></a-asset-item>
+      </a-assets>
       <a-entity>
-        </a-assets>
           <a-entity id="rotation_contener" contener_rotation="0 0 0" >
             <a-entity id="moving_contener" moving="0 0 0" >
 
@@ -20,15 +21,13 @@
               height="0.5"
               width="40"
               depth="40"
-              position="0 -0.5 0"
+              position="0 -0.5 4"
               src="#grass"
               roughness="1"
               metalness="0"
               id="floor"
-              moving="0 0 0">
+              >
 
-
-            <!-- <a-animation attribute="rotation" repeat="0" to = "0 90 0"> </a-animation> -->
             <a-box
             id="princess"
             height="7"
@@ -46,27 +45,39 @@
 
       <a-camera
         id="camera"
-        position="0 0.5 0"
+        position="0 1 0"
         camera_component= "0 0 0">
         <a-cursor color="#FF0000" />
       </a-camera>
 
 
-      <a-light
+      <!-- <a-light
         type="spot"
-        color="#FF0000"
+        color="#FFFFFF"
         position="0 6 20"
         look-at="#TestBox">
       </a-light>
-
       <a-light
+        type="spot"
+        color="#101010"
+        position="0 6 20"
+        look-at="#camera">
+      </a-light>
+      <a-light
+        type="spot"
+        color="#101010"
+        position="0 6 20"
+        look-at="#floor">
+      </a-light> -->
+
+      <!-- <a-light
         type="point"
         color="#FF9Fc5"
         position="-6 6 20"
-        look-at="#TestBox" > </a-light>
+        look-at="#TestBox" > </a-light> -->
 
       <a-sky src="images/sky_povray.jpg" color="#FF9Fc5"> </a-sky>
-    </a-scene>
+
 
     <script src="perfectMaze.js" ></script>
     <script src="move.js"></script>
@@ -75,6 +86,8 @@
     <script src= "food.js"></script>
     <script src= "aabb-collider.js"></script>
     <script src= "collision.js"></script>
+    <script src= "boardView.js"></script>
     <script src= "main.js"></script>
+    </a-scene>
   </body>
 </html>

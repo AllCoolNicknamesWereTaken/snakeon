@@ -1,22 +1,19 @@
-function move (){
-  //var camera = document.querySelector('#camera');
-  //console.log(camera);
 
-
-}
-function move (){
-  var floor = document.querySelector('#floor');
-  console.log(floor);
-
-
-}
+// function move (){
+//   var floor = document.querySelector('#floor');
+//   //console.log(floor);
+//   floor.position[moveDirection.xz] = floor.position[moveDirection.xz] + moveDirection.speed
+//   var pos = this.el.getAttribute('position');
+//
+//   floor.setAttribute('position', `0 0 ${pos.z + 0.01}`);
+// }
 
 
 AFRAME.registerComponent('moving', {
   schema: {type: 'vec3'},
   tick: function (time, timeDelta) {
     var pos = this.el.getAttribute('position');
-    
+
   //  this.el.setAttribute('position', `0 0 ${pos.z + 0.01}`);
     //let xy = moveDirection.xy;
 

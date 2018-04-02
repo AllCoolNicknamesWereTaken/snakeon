@@ -120,11 +120,13 @@ RemoveWall();
 }
 
 function CreateWall(position, rotation, id) {
-var element = document.createElement('a-box');
-element.setAttribute('height', '10');
-element.setAttribute('width', '0.01');
-element.setAttribute('depth', '8');
-element.setAttribute('color', 'green');
+var element = document.createElement('a-entity');
+// element.setAttribute('height', '10');
+// element.setAttribute('width', '2');
+// element.setAttribute('depth', '8');
+element.setAttribute('gltf-model', '#wall_obj');
+// element.setAttribute('color', 'green');
+element.setAttribute('scale', '0.7 0.7 0.7');
 element.setAttribute('roughness', '1');
 element.setAttribute('metalness', '0');
 element.setAttribute("position", position[0] + ' ' + position[1] + ' ' + position[2]);
@@ -138,15 +140,15 @@ scene.appendChild(element);
 
 function perfectMaze(n, lenght) {
 
-var state1 = [-n*lenght/2, -0.25 ,-(n*lenght/2) + (lenght/2)];
-var state2 = [(-n*lenght/2) + (lenght/2), -0.25 ,-(n*lenght/2)];
-var rotation = "0 0 0";
+var state1 = [-n*lenght/2, 0.35 ,-(n*lenght/2) + (lenght/2)];
+var state2 = [(-n*lenght/2) + (lenght/2), 0.35 ,-(n*lenght/2)];
+var rotation = "0 90 0";
 
  for( var j = 0; j <= n; j++ ) {
    matrix[j] = [];
    for(var i = 0; i < n; i++ ) {
       CreateWall(state1, rotation, (j-1) + " " + i + " " + j + " " + i);
-      CreateWall(state2,"0 90 0", i + " " + (j-1) + " " + i + " " + j );
+      CreateWall(state2,"0 0 0", i + " " + (j-1) + " " + i + " " + j );
       if(j!==n) {
         matrix[j][i] = 1;
 
