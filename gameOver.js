@@ -24,8 +24,10 @@ function winerOrLoser(el) {
     over = true;
     mazeSize = 5;
     score = 0;
-    remove();
-    //setTimeout(remove, 500);
+    gameOver()
+  //  remove();
+
+    setTimeout(remove, 500);
 
     document.getElementById("UI_intro").setAttribute("visible", "true");
 
