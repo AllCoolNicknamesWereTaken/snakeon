@@ -14,11 +14,7 @@ var cameraBox = document.querySelector('#cameraBox');
 var floor = document.getElementById("floor");
 var over = 0;
 function start_game() {
-  if(over){
-  console.log("wlazlem do if z over");
-    addFloor();
-    over = false;
-  }
+
   document.getElementById("UI_intro").setAttribute("visible", "false");
   perfectMaze(mazeSize,wallLenght);
     boardView();

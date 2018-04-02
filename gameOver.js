@@ -1,5 +1,10 @@
 function gameOver() {
   document.getElementById('floor').removeAttribute('moving');
+  remove();
+  over = true;
+  mazeSize = 3;
+  score = 0;
+  addFloor();
 
 }
 function winerOrLoser(el) {
@@ -21,13 +26,13 @@ function winerOrLoser(el) {
   }
   else {
 
-    over = true;
-    mazeSize = 5;
-    score = 0;
-    gameOver()
+    // over = true;
+    // mazeSize = 5;
+    // score = 0;
+    gameOver();
   //  remove();
 
-    setTimeout(remove, 500);
+    //setTimeout(remove, 500);
 
     document.getElementById("UI_intro").setAttribute("visible", "true");
 
