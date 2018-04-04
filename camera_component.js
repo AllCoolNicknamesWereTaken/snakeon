@@ -7,8 +7,6 @@ AFRAME.registerComponent('camera_component', {
     }
 
     if(((this.el.object3D.rotation.y) % dziel) >  0.90 && ((this.el.object3D.rotation.y) % dziel) <  2.0 ) {
-      //floor.rotation.y =+ 90;
-
       rotation_delta = -90;
       direction = direction + rotation_delta;
       i++
@@ -19,13 +17,9 @@ AFRAME.registerComponent('camera_component', {
       else {
         moveDirection.xz = 'z';
         moveDirection.speed = moveDirection.speed * (-1);
-
-
       }
     }
     if((this.el.object3D.rotation.y % dziel) <  -0.90 && ((this.el.object3D.rotation.y) % dziel) >  -2.0 ) {
-
-
       rotation_delta = +90;
       direction = direction + rotation_delta;
       i++

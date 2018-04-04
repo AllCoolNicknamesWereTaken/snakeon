@@ -139,7 +139,7 @@ scene.appendChild(element);
 }
 
 function perfectMaze(n, lenght) {
-  //var box = document.querySelector("#BrickBox");
+  
   var wall = document.querySelector("#Wall");
   scene = document.getElementById('floor');
   var matrix = [];
@@ -155,7 +155,6 @@ console.log(floor);
 floor.setAttribute('width', floorSize);
 floor.setAttribute('depth', floorSize);
 console.log('widthfloor: ' + floor.getAttribute('width'))
-//floor.getAttribute('depth') = floorWidth;
 
  for( var j = 0; j <= n; j++ ) {
    matrix[j] = [];

@@ -14,13 +14,12 @@ var cameraBox = document.querySelector('#cameraBox');
 var floor = document.getElementById("floor");
 var over = 0;
 function start_game() {
-
   document.getElementById("UI_intro").setAttribute("visible", "false");
   perfectMaze(mazeSize,wallLenght);
-    boardView();
-  //Interval = setInterval(function(){move()}, 300)
+  boardView();
   setTimeout(collision, 500);
   }
+  
 function go_to_github() {
 	   window.open('https://github.com/AllCoolNicknamesWereTaken/snakeon');
 }

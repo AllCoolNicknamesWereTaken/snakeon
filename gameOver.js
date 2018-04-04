@@ -12,7 +12,6 @@ function winerOrLoser(el) {
   if (el.detail.el.classList.contains( 'princess' )) {
     score += 1;
     mazeSize += 2;
-    //console.log( mazeSize, wallLenght);
     if(document.getElementById('points').getAttribute('value').slice(6) < score) {
         document.getElementById('points').removeAttribute('value');
         document.getElementById('points').setAttribute('value',"Best: " + score);

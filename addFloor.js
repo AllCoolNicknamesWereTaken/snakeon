@@ -14,7 +14,7 @@ function addFloor() {
   element.setAttribute('metalness', "0" );
   element.setAttribute('id', "floor");
   document.querySelector('#moving_contener').appendChild(element);
-  var foodelement = document.createElement('a-box')
+  var foodelement = document.createElement('a-entity');
   foodelement.setAttribute('id', 'princess');
   foodelement.setAttribute('height', '7');
   foodelement.setAttribute('width', '5');
