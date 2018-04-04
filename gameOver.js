@@ -16,6 +16,8 @@ function winerOrLoser(el) {
         document.getElementById('points').removeAttribute('value');
         document.getElementById('points').setAttribute('value',"Best: " + score);
     }
+    document.getElementById('floor').removeAttribute('moving');
+    document.getElementById('rotation_contener').removeAttribute('contener_rotation');
     remove();
     addFloor();
     perfectMaze(mazeSize, wallLenght);
