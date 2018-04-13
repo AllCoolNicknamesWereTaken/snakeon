@@ -13,7 +13,7 @@ var element = 0;
 //     )
 // });
 function isZero(currentValue) {
-return currentValue == 0;
+return currentValue === 0;
 }
 
 function ChangeState(direction, x, y) {
